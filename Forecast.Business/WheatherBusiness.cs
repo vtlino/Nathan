@@ -25,11 +25,19 @@ namespace Forecast.Business
             .ToArray();
         }
 
-        public CelsiusToFarenheitResponse ConvertCelsiusToFarenheit (int temperatureValue)
+        public CelsiusToFarenheitResponse ConvertCelsiusToFarenheit (int temperatureCelsiusValue)
         {
-            var temperatureFarenheit = (temperatureValue * 9) / 5 + 32;
-            return new CelsiusToFarenheitResponse(temperatureValue) { TemperatureFarenheitValue = temperatureFarenheit };
+            var temperatureFarenheitValue = (temperatureCelsiusValue * 9) / 5 + 32;
+            var transformadaDeLaplace = CalcularTransformadaDeLaplace(temperatureCelsiusValue);
+
+            //TODO: Log
+            return new CelsiusToFarenheitResponse(temperatureCelsiusValue) { TemperatureFarenheitValue = temperatureFarenheitValue };
             
+        }
+
+        private int CalcularTransformadaDeLaplace(int temperatureCelsiusValue)
+        {
+            return 0;
         }
     }
 }

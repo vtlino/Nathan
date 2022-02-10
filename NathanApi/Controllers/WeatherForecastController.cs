@@ -3,6 +3,7 @@ using Forecast.Domain.Request;
 using Forecast.Domain.Response;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 
 namespace NathanApi.Controllers
@@ -19,8 +20,9 @@ namespace NathanApi.Controllers
         }
 
         [HttpGet("celsius/{temperatureValue}/farenheit")]
-        public CelsiusToFarenheitResponse GetCelsiusToFarenheit([FromRoute] int temperatureValue)
+        public CelsiusToFarenheitResponse GetCelsiusToFarenheit([FromRoute] int temperatureValue, [FromHeader] Guid correlationId)
         {
+            //Log aqui
             return _wheatherBusiness.ConvertCelsiusToFarenheit(temperatureValue);
         }
 
