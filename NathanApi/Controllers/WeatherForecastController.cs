@@ -19,7 +19,7 @@ namespace NathanApi.Controllers
             _wheatherBusiness = wheatherBusiness;
         }
 
-        [HttpGet("celsius/{temperatureValue}/farenheit")]
+        [HttpGet("celsius/{temperatureValue}/farenheit/1")]
         public CelsiusToFarenheitResponse GetCelsiusToFarenheit([FromRoute] int temperatureValue, [FromHeader] Guid correlationId)
         {
             //Log aqui
